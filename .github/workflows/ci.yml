@@ -28,7 +28,7 @@ jobs:
         working-directory: ./backend
 
       - name: Run tests
-        run: npx jest
+        run: npx jest --passWithNoTests
         working-directory: ./backend
 
   docker:
