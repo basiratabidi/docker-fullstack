@@ -44,17 +44,25 @@ docker compose up --build
 Then test it:
 
 by running this: 
-http://localhost/api/health 
+```bash
+
+http://localhost/api/health
+```
+
     replies with "ok" if its working correctly
 
 to feed data :
+```bash
 
 curl -X POST http://localhost/api/users \
   -H "Content-Type: application/json" \
   -d '{"name": "Your Name", "email": "you@email.com"}'
+```
 
 run on web: 
- http://localhost/api/users
+ ```bash
+http://localhost/api/users
+```
 
 
 ## API Endpoints
@@ -71,12 +79,12 @@ run on web:
 
 docker-fullstack/
 ├── backend/
-│   ├── index.js        # Express API
-│   ├── package.json    # Dependencies
-│   └── Dockerfile      # Container build instructions
+│   ├── index.js        
+│   ├── package.json    
+│   └── Dockerfile      
 ├── nginx/
-│   └── nginx.conf      # Reverse proxy config
-└── docker-compose.yml  # Wires all 3 services together
+│   └── nginx.conf     
+└── docker-compose.yml 
 ```
 
 ## Tech Stack
