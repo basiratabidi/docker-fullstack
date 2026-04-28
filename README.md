@@ -67,6 +67,7 @@ run on web:
 
 ## Project Structure
 
+```bash
 
 docker-fullstack/
 ├── backend/
@@ -76,7 +77,7 @@ docker-fullstack/
 ├── nginx/
 │   └── nginx.conf      # Reverse proxy config
 └── docker-compose.yml  # Wires all 3 services together
-
+```
 
 ## Tech Stack
 
