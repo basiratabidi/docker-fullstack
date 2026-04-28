@@ -1,13 +1,13 @@
 # Dockerised Full-Stack Deployment
 
-A 3-tier web application containerised with Docker Compose — Node.js REST API,
+A 3-tier web application containerised with Docker Compose with Node.js REST API,
 PostgreSQL database, and Nginx reverse proxy.
 
 ## Why I Built This
 
 I built this to understand how real applications are deployed in containerised
 environments. Instead of running services directly on my machine, I wanted to
-learn how Docker networks, volumes, and reverse proxies work together — the
+learn how Docker networks, volumes, and reverse proxies work together and the
 same pattern used in production DevOps workflows.
 
 ## How It Works
@@ -17,13 +17,13 @@ Browser → Nginx (port 80) → Node.js API (port 3000) → PostgreSQL (port 543
 ```
 
 Docker Compose creates a private internal network automatically. All three
-containers communicate using their service names as hostnames — no manual
+containers communicate using their service names as hostnames with no manual
 networking required. Only Nginx is exposed to the outside world on port 80.
 Everything else is internal.
 
-- **Nginx** — reverse proxy; routes any request starting with `/api/` to the backend
-- **Node.js + Express** — REST API that handles requests and queries the database
-- **PostgreSQL** — persistent storage; data survives container restarts via a named volume
+- **Nginx** : reverse proxy; routes any request starting with `/api/` to the backend
+- **Node.js + Express**: REST API that handles requests and queries the database
+- **PostgreSQL**: persistent storage; data survives container restarts via a named volume
 
 ## What I Learned
 
@@ -36,22 +36,34 @@ Everything else is internal.
 ## Run It Yourself
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/docker-fullstack.git
+git clone https://github.com/basiratabidi/docker-fullstack.git
 cd docker-fullstack
 docker compose up --build
 ```
 
 Then test it:
 
+by running this: 
 ```bash
-curl http://localhost/api/health
+
+http://localhost/api/health
+```
+
+    replies with "ok" if its working correctly
+
+to feed data :
+```bash
 
 curl -X POST http://localhost/api/users \
   -H "Content-Type: application/json" \
   -d '{"name": "Your Name", "email": "you@email.com"}'
-
-curl http://localhost/api/users
 ```
+
+run on web: 
+ ```bash
+http://localhost/api/users
+```
+
 
 ## API Endpoints
 
@@ -63,15 +75,16 @@ curl http://localhost/api/users
 
 ## Project Structure
 
-```
+```bash
+
 docker-fullstack/
 ├── backend/
-│   ├── index.js        # Express API
-│   ├── package.json    # Dependencies
-│   └── Dockerfile      # Container build instructions
+│   ├── index.js        
+│   ├── package.json    
+│   └── Dockerfile      
 ├── nginx/
-│   └── nginx.conf      # Reverse proxy config
-└── docker-compose.yml  # Wires all 3 services together
+│   └── nginx.conf     
+└── docker-compose.yml 
 ```
 
 ## Tech Stack
