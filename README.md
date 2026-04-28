@@ -36,22 +36,26 @@ Everything else is internal.
 ## Run It Yourself
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/docker-fullstack.git
+git clone https://github.com/basiratabidi/docker-fullstack.git
 cd docker-fullstack
 docker compose up --build
 ```
 
 Then test it:
 
-```bash
-curl http://localhost/api/health
+by running this: 
+http://localhost/api/health 
+    replies with "ok" if its working correctly
+
+to feed data :
 
 curl -X POST http://localhost/api/users \
   -H "Content-Type: application/json" \
   -d '{"name": "Your Name", "email": "you@email.com"}'
 
-curl http://localhost/api/users
-```
+run on web: 
+ http://localhost/api/users
+
 
 ## API Endpoints
 
@@ -63,7 +67,7 @@ curl http://localhost/api/users
 
 ## Project Structure
 
-```
+
 docker-fullstack/
 ├── backend/
 │   ├── index.js        # Express API
@@ -72,7 +76,7 @@ docker-fullstack/
 ├── nginx/
 │   └── nginx.conf      # Reverse proxy config
 └── docker-compose.yml  # Wires all 3 services together
-```
+
 
 ## Tech Stack
 
