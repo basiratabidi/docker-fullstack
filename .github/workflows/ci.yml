@@ -27,8 +27,8 @@ jobs:
         run: npx eslint index.js
         working-directory: ./backend
 
-      - name: Run tests
-        run: npx jest --passWithNoTests
+      - name: Run Tests
+        run: npm test
         working-directory: ./backend
 
   docker:
