@@ -39,6 +39,16 @@ app.post('/api/users', async (req, res) => {
   res.json(result.rows[0]);
 });
 
-app.listen(3000, () => console.log('Backend running on port 3000'));
+// Only start the server if this module is run directly (not imported for testing)
+if (require.main === module) {
+  const server = app.listen(3000, () => console.log('Backend running on port 3000'));
+  
+  // Graceful shutdown
+  process.on('SIGTERM', () => {
+    server.close(() => {
+      pool.end(() => process.exit(0));
+    });
+  });
+}
 
 module.exports = app;
